@@ -62,14 +62,3 @@ Then visit:
 ```text
 http://localhost:8000
 ```
-
-## Deploy On Vercel
-
-1. Import this GitHub repository into Vercel
-2. Choose the branch you want to deploy
-3. Keep the framework preset as `Other`
-4. Leave build command empty
-5. Leave output directory empty
-6. Deploy
-
-Because this is a static HTML/CSS/JS site, no build step is required.
