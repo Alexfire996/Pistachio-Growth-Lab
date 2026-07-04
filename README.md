@@ -43,6 +43,4 @@ This is a lightweight static site built with plain HTML, CSS, and JavaScript. It
 
 ## Contact
 
-Book a 30-minute growth call:
-
-`alex@pistachiogrowth.com`
+Book a 30-minute growth call
