@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CTA Variations | Pistachios Growth Lab</title>
+    <meta
+      name="description"
+      content="Five call-to-action concepts for Pistachios Growth Lab."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    >
+    <style>
+      :root {
+        --olive: #5f6735;
+        --olive-dark: #383f21;
+        --leaf: #778047;
+        --sprout: #a7b86d;
+        --shell: #cbb690;
+        --shell-light: #f6eddc;
+        --cream: #fffaf0;
+        --ink: #202312;
+        --muted: #686a4f;
+        --white: #ffffff;
+        --line: rgba(95, 103, 53, 0.18);
+        --shadow: 0 24px 70px rgba(60, 63, 32, 0.16);
+        --radius: 8px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          linear-gradient(140deg, rgba(255, 250, 240, 0.96), rgba(246, 237, 220, 0.72)),
+          radial-gradient(circle at 86% 5%, rgba(167, 184, 109, 0.28), transparent 29rem);
+        font-family: "Nunito Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page-shell {
+        width: min(1180px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .intro {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: end;
+        gap: 2rem;
+        padding: clamp(2rem, 6vw, 5rem) 0 clamp(1.5rem, 4vw, 3rem);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.85rem;
+        margin-bottom: 1.4rem;
+        color: var(--olive);
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .brand img {
+        width: 4.25rem;
+        height: auto;
+      }
+
+      .kicker {
+        margin: 0 0 0.8rem;
+        color: var(--olive);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1,
+      h2 {
+        font-family: "Fraunces", Georgia, serif;
+        letter-spacing: 0;
+      }
+
+      h1 {
+        max-width: 12ch;
+        margin-bottom: 1rem;
+        color: var(--olive-dark);
+        font-size: clamp(3rem, 8vw, 6.8rem);
+        line-height: 0.95;
+      }
+
+      .intro-copy {
+        max-width: 43rem;
+        color: var(--muted);
+        font-size: clamp(1.05rem, 2vw, 1.25rem);
+      }
+
+      .note {
+        max-width: 23rem;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.58);
+        padding: 1.15rem;
+        color: var(--muted);
+        box-shadow: 0 18px 44px rgba(56, 63, 33, 0.08);
+      }
+
+      .board {
+        display: grid;
+        gap: clamp(1.2rem, 3vw, 2rem);
+        padding-bottom: clamp(2.5rem, 6vw, 5rem);
+      }
+
+      .variation {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.56);
+        box-shadow: var(--shadow);
+      }
+
+      .variation-label {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.7rem;
+        border-bottom: 1px solid var(--line);
+        padding: 0.9rem 1rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 800;
+      }
+
+      .variation-label strong {
+        color: var(--olive-dark);
+      }
+
+      .cta {
+        min-height: 28rem;
+        padding: clamp(1.4rem, 5vw, 3rem);
+      }
+
+      .cta h2 {
+        margin-bottom: 1rem;
+        font-size: clamp(2.3rem, 6vw, 5.7rem);
+        line-height: 0.98;
+      }
+
+      .cta p {
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      .button {
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--olive);
+        border-radius: var(--radius);
+        padding: 0.85rem 1.2rem;
+        cursor: pointer;
+        font-weight: 900;
+        transition: transform 200ms ease, box-shadow 200ms ease;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-2px);
+      }
+
+      .button.primary {
+        background: var(--olive);
+        color: var(--white);
+        box-shadow: 0 14px 30px rgba(95, 103, 53, 0.24);
+      }
+
+      .button.light {
+        border-color: var(--shell-light);
+        background: var(--shell-light);
+        color: var(--olive-dark);
+      }
+
+      .button.ghost {
+        background: rgba(255, 255, 255, 0.54);
+        color: var(--olive-dark);
+      }
+
+      .cta-one {
+        display: grid;
+        grid-template-columns: 0.76fr 1.24fr;
+        gap: clamp(1.5rem, 5vw, 5rem);
+        align-items: center;
+        background: var(--olive);
+        color: var(--white);
+      }
+
+      .cta-one .kicker,
+      .cta-one h2 {
+        color: var(--white);
+      }
+
+      .cta-one p {
+        max-width: 25rem;
+        color: rgba(255, 255, 255, 0.76);
+      }
+
+      .mini-list {
+        display: grid;
+        gap: 0.8rem;
+        margin-top: 1.5rem;
+      }
+
+      .mini-list span {
+        border-left: 4px solid var(--shell);
+        padding-left: 0.8rem;
+        color: rgba(255, 255, 255, 0.82);
+        font-weight: 800;
+      }
+
+      .cta-two {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: clamp(1.5rem, 5vw, 4rem);
+        align-items: center;
+        background:
+          linear-gradient(105deg, rgba(255, 250, 240, 0.94), rgba(246, 237, 220, 0.72)),
+          var(--cream);
+      }
+
+      .channel-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.9rem;
+      }
+
+      .channel-card {
+        min-height: 9.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.7);
+        padding: 1rem;
+      }
+
+      .channel-card strong {
+        color: var(--olive-dark);
+        font-size: 1.25rem;
+        line-height: 1.1;
+      }
+
+      .channel-card span {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .cta-three {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: clamp(1.5rem, 5vw, 4rem);
+        align-items: center;
+        background: var(--olive-dark);
+        color: var(--white);
+      }
+
+      .cta-three .kicker,
+      .cta-three h2 {
+        color: var(--white);
+      }
+
+      .cta-three p {
+        max-width: 36rem;
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .budget-panel {
+        border: 1px solid rgba(255, 250, 240, 0.2);
+        border-radius: var(--radius);
+        background: rgba(255, 250, 240, 0.08);
+        padding: 1.1rem;
+      }
+
+      .budget-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        border-bottom: 1px solid rgba(255, 250, 240, 0.16);
+        padding: 0.95rem 0;
+      }
+
+      .budget-row:last-child {
+        border-bottom: 0;
+      }
+
+      .budget-row strong {
+        color: var(--white);
+      }
+
+      .budget-row span {
+        color: var(--shell-light);
+        font-weight: 900;
+      }
+
+      .cta-four {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: clamp(1.5rem, 5vw, 4rem);
+        align-items: stretch;
+        background: var(--shell-light);
+      }
+
+      .diagnostic-card {
+        display: grid;
+        align-content: center;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.68);
+        padding: clamp(1rem, 3vw, 1.5rem);
+      }
+
+      .question-list {
+        display: grid;
+        gap: 0.7rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .question-list span {
+        display: block;
+        border-radius: var(--radius);
+        background: var(--white);
+        padding: 0.75rem 0.85rem;
+        color: var(--olive-dark);
+        font-weight: 800;
+      }
+
+      .cta-five {
+        position: relative;
+        display: grid;
+        place-items: center;
+        min-height: 34rem;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 50% 50%, rgba(246, 237, 220, 0.95), rgba(255, 250, 240, 0.78) 38%, rgba(95, 103, 53, 0.12) 39%, rgba(95, 103, 53, 0.12) 48%, transparent 49%),
+          var(--cream);
+        text-align: center;
+      }
+
+      .cta-five::before,
+      .cta-five::after {
+        content: "";
+        position: absolute;
+        width: 11rem;
+        height: 20rem;
+        border-radius: 90% 0 90% 0;
+        background: rgba(95, 103, 53, 0.22);
+      }
+
+      .cta-five::before {
+        top: 2rem;
+        left: 8%;
+        transform: rotate(28deg);
+      }
+
+      .cta-five::after {
+        right: 7%;
+        bottom: 1rem;
+        background: rgba(203, 182, 144, 0.42);
+        transform: rotate(55deg);
+      }
+
+      .center-card {
+        position: relative;
+        z-index: 1;
+        width: min(43rem, 100%);
+      }
+
+      .center-card h2 {
+        max-width: 10ch;
+        margin-inline: auto;
+      }
+
+      .center-card p {
+        max-width: 34rem;
+        margin-inline: auto;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+      }
+
+      .cta-five .actions {
+        justify-content: center;
+      }
+
+      :focus-visible {
+        outline: 3px solid var(--sprout);
+        outline-offset: 4px;
+      }
+
+      @media (max-width: 860px) {
+        .intro,
+        .cta-one,
+        .cta-two,
+        .cta-three,
+        .cta-four {
+          grid-template-columns: 1fr;
+        }
+
+        .note {
+          max-width: none;
+        }
+
+        .cta {
+          min-height: auto;
+        }
+
+        .cta-one,
+        .cta-three {
+          align-items: start;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .brand img {
+          width: 3.2rem;
+        }
+
+        .channel-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .actions,
+        .button {
+          width: 100%;
+        }
+
+        .cta-five {
+          text-align: left;
+        }
+
+        .cta-five .actions {
+          justify-content: stretch;
+        }
+
+        .center-card h2,
+        .center-card p {
+          margin-inline: 0;
+        }
+
+        .cta-five::before {
+          left: -5rem;
+        }
+
+        .cta-five::after {
+          right: -5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <a class="brand" href="index.html" aria-label="Back to Pistachios Growth Lab homepage">
+            <img src="pgl-logo-transparent.png" alt="Pistachios Growth Lab logo">
+            <span>CTA design board</span>
+          </a>
+          <p class="kicker">Five ways to close the page</p>
+          <h1 id="page-title">CTA options with different jobs.</h1>
+          <p class="intro-copy">
+            Each variation keeps the Pistachios palette, but changes the conversion angle:
+            urgency, clarity, budget fit, advisory value, or emotional warmth.
+          </p>
+        </div>
+        <aside class="note">
+          <strong>My recommendation:</strong> use variation 3 if you want the CTA to feel most
+          qualified and operator-led. Use variation 5 if you want the most wholesome brand moment.
+        </aside>
+      </section>
+
+      <div class="board">
+        <article class="variation">
+          <div class="variation-label">
+            <strong>Variation 1</strong>
+            <span>Direct close: clear and simple</span>
+          </div>
+          <section class="cta cta-one" aria-label="Variation 1 direct close">
+            <div>
+              <p class="kicker">Start growing</p>
+              <div class="mini-list" aria-label="Service list">
+                <span>Influencer marketing</span>
+                <span>Ads</span>
+                <span>SEO/AEO</span>
+                <span>Advisory</span>
+              </div>
+            </div>
+            <div>
+              <h2>Ready to choose the right growth channel?</h2>
+              <p>
+                Bring the product, budget, and current blockers. We will help you decide where growth has the best chance to work.
+              </p>
+              <div class="actions">
+                <a class="button light" href="mailto:alex@pistachiogrowth.com">Book a growth session</a>
+              </div>
+            </div>
+          </section>
+        </article>
+
+        <article class="variation">
+          <div class="variation-label">
+            <strong>Variation 2</strong>
+            <span>Channel chooser: makes the offer easier to scan</span>
+          </div>
+          <section class="cta cta-two" aria-label="Variation 2 channel chooser">
+            <div>
+              <p class="kicker">Pick your growth lane</p>
+              <h2>Which channel needs operator help first?</h2>
+              <p>
+                Choose the area with the most urgency. We can start focused, then expand once the first motion is clearer.
+              </p>
+              <div class="actions">
+                <a class="button primary" href="mailto:alex@pistachiogrowth.com">Talk through the fit</a>
+              </div>
+            </div>
+            <div class="channel-grid" aria-label="Growth channels">
+              <div class="channel-card">
+                <strong>Creators</strong>
+                <span>Creator strategy, outreach, campaign structure.</span>
+              </div>
+              <div class="channel-card">
+                <strong>Ads</strong>
+                <span>Paid tests, creative angles, budget clarity.</span>
+              </div>
+              <div class="channel-card">
+                <strong>SEO/AEO</strong>
+                <span>Search visibility and AI answer coverage.</span>
+              </div>
+              <div class="channel-card">
+                <strong>Advisory</strong>
+                <span>Growth decisions across product and funnel.</span>
+              </div>
+            </div>
+          </section>
+        </article>
+
+        <article class="variation">
+          <div class="variation-label">
+            <strong>Variation 3</strong>
+            <span>Budget-fit close: the most qualified and strategic</span>
+          </div>
+          <section class="cta cta-three" aria-label="Variation 3 budget-fit close">
+            <div>
+              <p class="kicker">Budget-realistic growth</p>
+              <h2>Let’s put your budget where it can actually work.</h2>
+              <p>
+                Underfunded channels create muddy signals. We help you pick the right motion, fund it properly, and avoid tests that were too small to teach you anything.
+              </p>
+              <div class="actions">
+                <a class="button light" href="mailto:alex@pistachiogrowth.com">Check channel fit</a>
+              </div>
+            </div>
+            <aside class="budget-panel" aria-label="Budget guidance">
+              <div class="budget-row">
+                <strong>Influencer marketing</strong>
+                <span>$30k+</span>
+              </div>
+              <div class="budget-row">
+                <strong>Ads</strong>
+                <span>$30k+</span>
+              </div>
+              <div class="budget-row">
+                <strong>SEO/AEO</strong>
+                <span>$2k-$10k</span>
+              </div>
+              <div class="budget-row">
+                <strong>Advisory</strong>
+                <span>$400/hr+</span>
+              </div>
+            </aside>
+          </section>
+        </article>
+
+        <article class="variation">
+          <div class="variation-label">
+            <strong>Variation 4</strong>
+            <span>Diagnostic close: starts a better conversation</span>
+          </div>
+          <section class="cta cta-four" aria-label="Variation 4 diagnostic close">
+            <div>
+              <p class="kicker">Growth diagnosis</p>
+              <h2>Not sure what to fix first?</h2>
+              <p>
+                The best first move is not always a new channel. Sometimes it is positioning, onboarding, activation, or the way the offer is framed.
+              </p>
+              <div class="actions">
+                <a class="button primary" href="mailto:alex@pistachiogrowth.com">Map the next move</a>
+              </div>
+            </div>
+            <aside class="diagnostic-card" aria-label="Diagnostic questions">
+              <div class="question-list">
+                <span>Is the product positioning clear enough?</span>
+                <span>Do new users understand the value quickly?</span>
+                <span>Which channel has enough budget to learn?</span>
+                <span>Where is the team guessing instead of deciding?</span>
+              </div>
+              <p>
+                Useful for founders who want advisory before committing to a channel buildout.
+              </p>
+            </aside>
+          </section>
+        </article>
+
+        <article class="variation">
+          <div class="variation-label">
+            <strong>Variation 5</strong>
+            <span>Wholesome close: soft, memorable, brand-forward</span>
+          </div>
+          <section class="cta cta-five" aria-label="Variation 5 wholesome close">
+            <div class="center-card">
+              <p class="kicker">A stronger next season</p>
+              <h2>Grow without losing the roots.</h2>
+              <p>
+                If your product is ready for more attention, we can help shape the channels, message, and decisions that make growth feel grounded.
+              </p>
+              <div class="actions">
+                <a class="button primary" href="mailto:alex@pistachiogrowth.com">Start a growth conversation</a>
+                <a class="button ghost" href="index.html">Back to homepage</a>
+              </div>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+  </body>
+</html>
