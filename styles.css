@@ -24,6 +24,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: clip;
   color: var(--ink);
   background:
     linear-gradient(140deg, rgba(255, 250, 240, 0.96), rgba(246, 237, 220, 0.74)),
@@ -106,15 +107,33 @@ img {
   color: var(--olive);
 }
 
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .language-toggle {
   min-height: 36px;
   display: inline-flex;
   align-items: center;
-  gap: 0.15rem;
+  gap: 0.2rem;
   border: 1px solid rgba(95, 103, 53, 0.18);
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.48);
   padding: 0.18rem;
+}
+
+.language-toggle svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-left: 0.35rem;
+  color: var(--olive);
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
 }
 
 .language-option {
@@ -133,6 +152,41 @@ img {
 .language-option.is-active {
   background: var(--olive);
   color: var(--white);
+}
+
+.menu-toggle {
+  width: 46px;
+  height: 46px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid rgba(95, 103, 53, 0.2);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--olive-dark);
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.site-header.is-menu-open .menu-toggle span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.site-header.is-menu-open .menu-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header.is-menu-open .menu-toggle span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .nav-cta {
@@ -585,18 +639,52 @@ h3 {
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1024px) {
   .site-header {
     align-items: center;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    padding: 0.5rem clamp(1rem, 4vw, 1.8rem);
   }
 
   .nav-links {
-    flex: 1 1 28rem;
-    justify-content: flex-end;
-    overflow-x: auto;
-    padding-bottom: 0.15rem;
+    position: absolute;
+    top: calc(100% + 0.45rem);
+    right: clamp(1rem, 4vw, 1.8rem);
+    width: min(19rem, calc(100vw - 2rem));
+    display: grid;
+    gap: 0.35rem;
+    align-items: stretch;
+    border: 1px solid rgba(95, 103, 53, 0.16);
+    border-radius: var(--radius);
+    background: rgba(255, 250, 240, 0.98);
+    box-shadow: 0 22px 54px rgba(56, 63, 33, 0.18);
+    padding: 0.65rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-0.5rem);
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  .site-header.is-menu-open .nav-links {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav-links a {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0 0.9rem;
+  }
+
+  .nav-links .nav-cta {
+    justify-content: center;
+    margin-top: 0.2rem;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
   }
 
   .hero,
@@ -609,12 +697,10 @@ h3 {
 
   .hero {
     min-height: auto;
-    position: relative;
-    overflow: hidden;
   }
 
   .hero-stage {
-    min-height: 14rem;
+    display: none;
   }
 
   .audience-grid,
@@ -636,28 +722,30 @@ h3 {
 
 @media (max-width: 560px) {
   .site-header {
-    align-items: flex-start;
-    gap: 0.45rem;
-    padding: 0.45rem 1rem 0.65rem;
+    gap: 0.65rem;
+    padding: 0.45rem 0.85rem;
   }
 
   .brand img {
     width: 6.2rem;
   }
 
-  .nav-links {
-    width: 100%;
-    justify-content: space-between;
-    font-size: 0.84rem;
-    gap: 0.35rem;
+  .header-controls {
+    gap: 0.45rem;
   }
 
-  .nav-links a {
-    padding: 0 0.2rem;
+  .language-toggle {
+    min-height: 42px;
   }
 
-  .nav-cta {
-    padding: 0 0.8rem !important;
+  .language-toggle svg {
+    margin-left: 0.28rem;
+  }
+
+  .language-option {
+    min-height: 34px;
+    padding: 0 0.42rem;
+    font-size: 0.74rem;
   }
 
   h1 {
@@ -671,36 +759,6 @@ h3 {
   .button,
   .hero-actions {
     width: 100%;
-  }
-
-  .hero-stage {
-    position: absolute;
-    right: -5.5rem;
-    bottom: 0.25rem;
-    z-index: 0;
-    width: 17rem;
-    min-height: 12rem;
-    margin-top: 0;
-    opacity: 0.36;
-    pointer-events: none;
-  }
-
-  .hero-copy {
-    position: relative;
-    z-index: 1;
-  }
-
-  .leaf-orbit {
-    inset: -2.8rem 1rem 1rem;
-  }
-
-  .leaf-orbit span {
-    width: 3.4rem;
-    height: 6.8rem;
-  }
-
-  .growth-card {
-    display: none;
   }
 
   .site-footer {

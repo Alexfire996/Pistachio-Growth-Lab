@@ -1,6 +1,9 @@
 const revealElements = document.querySelectorAll(".reveal");
 const translatableElements = document.querySelectorAll("[data-i18n]");
 const languageButtons = document.querySelectorAll("[data-lang]");
+const siteHeader = document.querySelector(".site-header");
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelectorAll(".nav-links a");
 
 const copy = {
   en: {},
@@ -102,8 +105,35 @@ const setLanguage = (language) => {
   }
 };
 
+const setMenuOpen = (isOpen) => {
+  if (!siteHeader || !menuToggle) {
+    return;
+  }
+
+  siteHeader.classList.toggle("is-menu-open", isOpen);
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+};
+
+menuToggle?.addEventListener("click", () => {
+  setMenuOpen(!siteHeader?.classList.contains("is-menu-open"));
+});
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => setMenuOpen(false));
+});
+
 languageButtons.forEach((button) => {
-  button.addEventListener("click", () => setLanguage(button.dataset.lang));
+  button.addEventListener("click", () => {
+    setLanguage(button.dataset.lang);
+    setMenuOpen(false);
+  });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    setMenuOpen(false);
+  }
 });
 
 if ("IntersectionObserver" in window) {
