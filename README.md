@@ -46,19 +46,3 @@ This is a lightweight static site built with plain HTML, CSS, and JavaScript. It
 Book a 30-minute growth call:
 
 `alex@pistachiogrowth.com`
-
-## Local Preview
-
-Open `index.html` directly in a browser.
-
-For a local server preview:
-
-```bash
-python3 -m http.server 8000
-```
-
-Then visit:
-
-```text
-http://localhost:8000
-```
