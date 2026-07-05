@@ -124,18 +124,6 @@ img {
   padding: 0.18rem;
 }
 
-.language-toggle svg {
-  width: 1.05rem;
-  height: 1.05rem;
-  margin-left: 0.35rem;
-  color: var(--olive);
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 2;
-}
-
 .language-option {
   min-height: 30px;
   border: 0;
@@ -736,10 +724,6 @@ h3 {
 
   .language-toggle {
     min-height: 42px;
-  }
-
-  .language-toggle svg {
-    margin-left: 0.28rem;
   }
 
   .language-option {
